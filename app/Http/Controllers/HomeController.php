@@ -6,16 +6,24 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index(Request $req){
         // check session or cookie
         
 
 
         $id = '47';
-        $name = 'HITMAN';
+        $name = $req->session()->get('uname');
 
-        return view('home.index', compact('id', 'name'));
+        if($req->session()->has('uname')){
+            return view('home.index', compact('id', 'name'));
 
+        }
+        else{
+            $req->session()->flash('msg', 'You have to login first!');
+            return redirect('/login');
+        }
+
+        
         //Alternate way:
         //return view('home.index')->with('id', '123');
         // return view('home.index')

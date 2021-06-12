@@ -6,6 +6,7 @@
 </head>
 <body>
 	<form method="post">
+		@csrf
 	<table>
 		<tr>
 			<td>Name</td>
@@ -17,10 +18,15 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" name="Submit" value="submit"></td>
+			<td>
+				<input type="submit" name="Submit" value="submit">
+				<a href="/register"> Signup</a>
+			</td>
 		</tr>
 	</table>
 	</form>
-	<a href="/register"> Signup</a>
+
+	<br>
+	{{session('msg')}}
 </body>
 </html>

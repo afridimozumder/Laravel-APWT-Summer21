@@ -21,9 +21,9 @@ Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@verify');
 Route::get('/home', 'HomeController@index');
 
-Route::get('/logout', 'LogoutController@index');
-Route::get('/user/create', 'UserController@create');
-Route::get('/user/userlist','UserController@userlist');
+Route::get('/logout', 'LogoutController@index')->name('logout');
+Route::get('/user/create', 'UserController@create')->name('user.create');
+Route::get('/user/userlist','UserController@userlist')->name('user.userlist');
 
 Route::get('/user/details/{id}','UserController@details');
 

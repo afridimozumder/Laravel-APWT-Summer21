@@ -39,11 +39,23 @@ class UserController extends Controller
     }
 
     public function edit($id){
-        echo $id;
+        $users = $this->getUserList();
+        $user = '';
+
+        foreach ($users as $u){
+            if($u['id'] == $id){
+                $user = $u;
+                break;
+            }
+        }
+
+        //$user = ['id'=>1, 'username'=>'hitman', 'password'=>'agent47', 'email'=>'agent47@cia.us', 'type'=>'spy'];
+        return view('user.edit')->with('user', $user);
     }
 
     public function update(Request $req, $id){
         echo $id;
+        echo "User updated";
     }
 
     public function delete($id){
