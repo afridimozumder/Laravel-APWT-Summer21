@@ -14,11 +14,13 @@ class LoginController extends Controller
             //dd($req);
             //echo "username : ".$req->uname. "and password: ".$req->password;
 
-            $req->session()->put('uname', $req->uname);
+            
             //$uname = $req->session()->get('uname');
             
             if( $req->uname == $req->password){
+                $req->session()->put('uname', $req->uname);
                 return redirect('/home');
+                
 
             }else{
                 $req->session()->flash('msg', 'Invalid username or password!');
