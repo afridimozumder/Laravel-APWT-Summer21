@@ -28,5 +28,10 @@
 
 	<br>
 	{{session('msg')}}
+	<br>
+
+	@foreach ($errors as $error)
+		{{$error}} <br>
+	@endforeach
 </body>
 </html>
